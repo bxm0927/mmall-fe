@@ -4,9 +4,9 @@
   "description": "mmall，企业级电商平台前端项目",
   "main": "index.js",
   "scripts": {
-    "dev"     : "set WEBPACK_ENV=dev && webpack-dev-server --inline --port 8089",
+    "dev"     : "set WEBPACK_ENV=dev && webpack-dev-server --inline --port 8088",
     "dist"    : "set WEBPACK_ENV=online && webpack -p",
-    "dev_mac" : "WEBPACK_ENV=dev webpack-dev-server --inline --port 8089",
+    "dev_mac" : "WEBPACK_ENV=dev webpack-dev-server --inline --port 8088",
     "dist_mac": "WEBPACK_ENV=online webpack -p"
   },
   "repository": {
