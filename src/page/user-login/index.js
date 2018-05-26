@@ -1,3 +1,4 @@
+// 登录页逻辑
 require('./index.css');
 require('page/common/nav-simple/index.js');
 var _user = require('service/user-service.js');

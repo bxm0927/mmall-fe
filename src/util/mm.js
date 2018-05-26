@@ -3,7 +3,8 @@
 var hogan = require('hogan.js');
 
 var conf = {
-    serverHost: ''
+    // serverHost: '' // localhost
+    serverHost: 'http://www.lovebxm.com' // online
 };
 
 var _mm = {
@@ -20,13 +21,13 @@ var _mm = {
                 if (0 === res.status) {
                     typeof param.success === 'function' && param.success(res.data, res.msg);
                 }
+                // 请求错误
+                else if (1 === res.status) {
+                    typeof param.error === 'function' && param.error(res.msg);
+                }
                 // 没有登录状态，需要强制登录
                 else if (10 === res.status) {
                     _this.doLogin();
-                }
-                // 请求数据错误
-                else if (1 === res.status) {
-                    typeof param.error === 'function' && param.error(res.msg);
                 }
             },
             error: function(err) {
@@ -34,12 +35,12 @@ var _mm = {
             }
         });
     },
-    // 获取服务器地址
+    // 统一配置服务器地址
     getServerUrl: function(path) {
         return conf.serverHost + path;
     },
     /**
-     * 获取 URL 参数
+     * 获取 URL 参数的值
      * origin: http://happymmall.com/product/list.do?keyword=1&page=2
      * getUrlParam(keyword) -> 1
      * getUrlParam(page) -> 2
