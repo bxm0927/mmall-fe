@@ -1,0 +1,27 @@
+/**
+ * 作品：reset.css
+ * 理念：1. 适应中文，基于最新主流浏览器
+ *       2. reset 的目的不是清除浏览器的默认样式，这仅是部分工作。清除和重置是紧密不可分的。
+ *       3. reset 的目的不是让默认样式在所有浏览器下一致，而是减少默认样式有可能带来的问题。
+ */
+
+@charset "utf-8";
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, pre,dl, dt, dd, ul, ol, li,
+form, fieldset, lengend, button, input, textarea, th, td { margin: 0; padding: 0; }
+
+ul, ol { list-style: none; }
+a { text-decoration: none; }
+q:before, q:after { content: ''; }
+legend { color: #000; }
+table { border-collapse: collapse; border-spacing: 0; }
+button, textarea { font-size: 100%; border: 0; }
+fieldset, img { border: 0; }
+label{ cursor: pointer; }
+
+/* 当 a 元素没有文本值，但 href 属性有链接的时候显示链接 */
+a[href^="http"]:empty::before { content: attr(href); }
+
+body{
+    background: #f6f6f6;
+    font: 12px/1.5 tahoma, arial, Microsoft YaHei, sans-serif;
+}

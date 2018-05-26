@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%= require('html-loader!./common/head.html') %>
+    <title>happymmall电商平台</title>
+</head>
+
+<body>
+    <%= require('html-loader!./common/nav.html') %>
+    <%= require('html-loader!./common/header.html') %>
+
+    <!-- 页面主要内容 - 首页 -->
+    <div class="page-wrap w">
+        <%= require('html-loader!./common/nav-side.html') %>
+
+        <!-- 左侧导航栏对应的右侧内容区 -->
+        <div class="content with-nav">左侧导航栏对应的右侧内容区</div>
+    </div>
+
+    <%= require('html-loader!./common/footer.html') %>
+</body>
+
+</html>

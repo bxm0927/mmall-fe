@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%= require('html-loader!./common/head.html') %>
+    <title><%= htmlWebpackPlugin.options.title%> - happymmall电商平台</title>
+</head>
+
+<body>
+    <%= require('html-loader!./common/nav.html') %>
+    <%= require('html-loader!./common/header.html') %>
+
+    <!-- 面包屑导航 -->
+    <div class="crumb">
+        <div class="w">
+            <div class="crumb-con">
+                <a class="link" href="./index.html">MMall</a>
+                <span>&gt;</span>
+                <span class="link-text"><%= htmlWebpackPlugin.options.title%></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面主要内容 - 修改个人信息 -->
+    <div class="page-wrap w">
+        <%= require('html-loader!./common/nav-side.html') %>
+
+        <div class="content with-nav">
+            <div class="panel">
+                <div class="panel-title">修改个人信息</div>
+
+                <div class="panel-body">
+                    <!-- 这里的内容动态渲染 -->
+                    <div class="loading"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%= require('html-loader!./common/footer.html') %>
+</body>
+
+</html>
