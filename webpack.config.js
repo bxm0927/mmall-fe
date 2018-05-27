@@ -22,6 +22,7 @@ var getHtmlConfig = function(name, title) {
     return {
         template: './src/view/' + name + '.html', // HTML 原始模板
         filename: 'view/' + name + '.html', // HTML 目标模板
+        favicon : './favicon.ico',
         title   : title,
         inject  : true,
         hash    : true,
@@ -49,8 +50,9 @@ var config = {
     },
     // 输出
     output: {
-        path      : './dist', // 打包后的文件存放的路径
-        publicPath: '/dist', // 文件的访问路径，默认 /
+        path      : __dirname + '/dist/', // 打包后的文件存放的路径
+        // publicPath: '/dist/', // 文件的访问路径，默认 /
+        publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.lovebxm.com/mmall-fe/dist/', // 文件的访问路径，默认 /
         filename  : 'js/[name].js' // 打包后的文件名，支持路径形式
     },
     // 外部依赖的声明
@@ -70,10 +72,14 @@ var config = {
                 test  : /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
                 loader: 'url-loader?limit=100&name=resource/[name].[ext]'
             },
-            // 处理 hogan.js 模版引擎
+            // 处理 hogan.js 模版引擎，最小化压缩，且不删除属性的引号
             {
                 test  : /\.string$/,
-                loader: 'html-loader'
+                loader: 'html-loader',
+                query : {
+                    minimize: true,
+                    removeAttributeQuotes: false
+                }
             }
         ]
     },

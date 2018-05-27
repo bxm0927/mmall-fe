@@ -4,6 +4,7 @@ var hogan = require('hogan.js');
 
 var conf = {
     // serverHost: '' // localhost
+    // serverHost: 'http://localhost:8080' // localhost
     serverHost: 'http://www.lovebxm.com' // online
 };
 

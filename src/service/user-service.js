@@ -1,5 +1,4 @@
-// 用户模块接口调用
-
+// 用户模块业务层，负责接口调用
 var _mm = require('util/mm.js');
 
 var _user = {

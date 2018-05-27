@@ -9,14 +9,3 @@ require('page/common/footer/index.js'); // 尾部
 
 // 工具类
 var _mm = require('util/mm.js'); // 工具类
-
-_mm.request({
-    method: 'POST',
-    url: _mm.getServerUrl('/user/logout.do'),
-    success: function (res) {
-        console.log(res);
-    },
-    error: function (errMsg) {
-        console.log(errMsg);
-    }
-})
