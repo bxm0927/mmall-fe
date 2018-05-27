@@ -37,7 +37,8 @@ var nav = {
             $('.user.not-login').hide().siblings('.user.login').show()
                 .find('.username').text(res.username);
         }, function(errMsg) {
-            _mm.errorTips(errMsg);
+            console.log(errMsg);
+            // _mm.errorTips(errMsg);
         });
     },
     // 加载购物车数量

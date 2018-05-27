@@ -52,7 +52,7 @@ var config = {
     output: {
         path      : __dirname + '/dist/', // 打包后的文件存放的路径
         // publicPath: '/dist/', // 文件的访问路径，默认 /
-        publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.lovebxm.com/mmall-fe/dist/', // 文件的访问路径，默认 /
+        publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.lovebxm.com/mmall-fe/dist/', // 静态资源文件的访问路径，默认 /
         filename  : 'js/[name].js' // 打包后的文件名，支持路径形式
     },
     // 外部依赖的声明
