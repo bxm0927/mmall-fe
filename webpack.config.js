@@ -8,6 +8,7 @@
 var webpack           = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 // Node.js 环境变量的配置 online || dev，该参数在启动命令里面配置
 var WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
@@ -20,7 +21,7 @@ if ('dev' === WEBPACK_ENV) {
 // 获取 html-webpack-plugin 参数的方法
 var getHtmlConfig = function(name, title) {
     return {
-        template: './src/view/' + name + '.html', // HTML 原始模板
+        template: './src/pages/' + name + '/' + name + '.html', // HTML 原始模板
         filename: 'view/' + name + '.html', // HTML 目标模板
         favicon : './favicon.ico',
         title   : title,
@@ -35,25 +36,30 @@ var config = {
     // 入口
     entry: {
         // 通用模块，与下面的 common 对应，打包到 /dist/js/base.js
-        'common'            : ['./src/page/common/index.js'],
-        'index'             : ['./src/page/index/index.js'],
-        // 'list'              : ['./src/page/list/index.js'],
-        // 'detail'            : ['./src/page/detail/index.js'],
-        // 'cart'              : ['./src/page/cart/index.js'],
-        'user-login'        : ['./src/page/user-login/index.js'],
-        'user-register'     : ['./src/page/user-register/index.js'],
-        'user-pass-reset'   : ['./src/page/user-pass-reset/index.js'],
-        'user-center'       : ['./src/page/user-center/index.js'],
-        'user-center-update': ['./src/page/user-center-update/index.js'],
-        'user-pass-update'  : ['./src/page/user-pass-update/index.js'],
-        'result'            : ['./src/page/result/index.js']
+        'common'            : ['./src/pages/common/index.js'],
+        'index'             : ['./src/pages/index/index.js'],
+        // 'list'              : ['./src/pages/list/index.js'],
+        // 'detail'            : ['./src/pages/detail/index.js'],
+        // 'cart'              : ['./src/pages/cart/index.js'],
+        'user-login'        : ['./src/pages/user-login/index.js'],
+        'user-register'     : ['./src/pages/user-register/index.js'],
+        'user-pass-reset'   : ['./src/pages/user-pass-reset/index.js'],
+        'user-center'       : ['./src/pages/user-center/index.js'],
+        'user-center-update': ['./src/pages/user-center-update/index.js'],
+        'user-pass-update'  : ['./src/pages/user-pass-update/index.js'],
+        'result'            : ['./src/pages/result/index.js']
     },
     // 输出
     output: {
-        path      : __dirname + '/dist/', // 打包后的文件存放的路径
-        // publicPath: '/dist/', // 文件的访问路径，默认 /
-        publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.lovebxm.com/mmall-fe/dist/', // 静态资源文件的访问路径，默认 /
-        filename  : 'js/[name].js' // 打包后的文件名，支持路径形式
+        // 打包后的文件存放的路径
+        path: __dirname + '/dist/',
+
+        // 文件的访问路径，默认 /
+        publicPath: '/dist/', // dev
+        // publicPath: WEBPACK_ENV === 'dev' ? '/dist/' : '//s.lovebxm.com/mmall-fe/dist/', // online
+
+        // 打包后的文件名，支持路径形式
+        filename: 'js/[name].js'
     },
     // 外部依赖的声明
     externals: {
@@ -88,17 +94,20 @@ var config = {
         alias: {
             node_modules: __dirname + '/node_modules',
             util        : __dirname + '/src/util',
-            page        : __dirname + '/src/page',
+            pages       : __dirname + '/src/pages',
             service     : __dirname + '/src/service',
             image       : __dirname + '/src/image'
         }
     },
     // 插件
     plugins: [
-        // 通用模块打包到 /dist/js/base.js
+        // 自动打开浏览器
+        new OpenBrowserPlugin({ url: 'http://localhost:8088/dist/view/' }),
+
+        // 通用js打包到 /dist/js/base.js
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
-            filename: 'js/base.js' // 最后会被放到 /dist/js/base.js
+            filename: 'js/base.js'
         }),
 
         // 把 CSS 单独打包到文件里，而不是混杂在 JS 中
