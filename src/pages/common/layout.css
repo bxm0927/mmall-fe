@@ -1,12 +1,40 @@
 /**
  * 作品：layout.css
- * 提示：建议配合 reset.css 一起使用
+ * 历练：
+ *     1. 不再兼容 IE6 了，让这个怪物自生自灭吧~
+ *     2. 建议配合 reset.css 一起使用
  */
 
 /***************************** 常用的布局样式 *****************************/
 
-/* 定宽布局 */
+/**
+ * 页面定宽布局
+ * 由于大部分用户的 PC 屏幕宽度为 1280px +，
+ * 极少部分在这之下（如 1024*768），所以可以如下设定（借鉴淘宝）
+ */
 .w { width: 1080px; margin: 0 auto; position: relative; overflow: hidden; }
+.small .w { width: 990px; }
+
+/* 统一盒模型 */
+.border-box *, .border-box *:after, .border-box *:before {
+    -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+}
+
+/* 居中, 不确定尺寸 */
+.center-unknown { position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; }
+.center-unknown-x { position: absolute; left: 0; right: 0; margin-left: auto; margin-right: auto; }
+.center-unknown-y { position: absolute; top: 0; bottom: 0; margin-top: auto; margin-bottom: auto; }
+
+/**
+ * 居中, 确定尺寸
+ * 负margin方式：先给出 width、height，然后设置负 margin
+ * Tips：由于原生 css 不支持变量，所以这里注释了
+ */
+/* .center-known {
+    width: @w;
+    height: @h;
+    position: absolute; top: 50%; left: 50%; margin-top: -(@w / 2); margin-left: -(@h / 2);
+} */
 
 /***************************** 常用的功能样式 *****************************/
 

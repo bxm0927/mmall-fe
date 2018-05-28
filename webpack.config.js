@@ -38,9 +38,9 @@ var config = {
         // 通用模块，与下面的 common 对应，打包到 /dist/js/base.js
         'common'            : ['./src/pages/common/index.js'],
         'index'             : ['./src/pages/index/index.js'],
-        // 'list'              : ['./src/pages/list/index.js'],
-        // 'detail'            : ['./src/pages/detail/index.js'],
-        // 'cart'              : ['./src/pages/cart/index.js'],
+        'list'              : ['./src/pages/list/index.js'],
+        'detail'            : ['./src/pages/detail/index.js'],
+        'shopping-cart'     : ['./src/pages/shopping-cart/index.js'],
         'user-login'        : ['./src/pages/user-login/index.js'],
         'user-register'     : ['./src/pages/user-register/index.js'],
         'user-pass-reset'   : ['./src/pages/user-pass-reset/index.js'],
@@ -56,7 +56,7 @@ var config = {
 
         // 文件的访问路径，默认 /
         publicPath: '/dist/', // dev
-        // publicPath: WEBPACK_ENV === 'dev' ? '/dist/' : '//s.lovebxm.com/mmall-fe/dist/', // online
+        // publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.lovebxm.com/mmall-fe/dist/', // online
 
         // 打包后的文件名，支持路径形式
         filename: 'js/[name].js'
@@ -115,9 +115,9 @@ var config = {
 
         // 处理 HTML 模版，自动更新 HTML 文件中引入文件的 hash 值等
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
-        // new HtmlWebpackPlugin(getHtmlConfig('list', '商品列表页')),
-        // new HtmlWebpackPlugin(getHtmlConfig('detail', '商品详情页')),
-        // new HtmlWebpackPlugin(getHtmlConfig('cart', '购物车')),
+        new HtmlWebpackPlugin(getHtmlConfig('list', '商品列表页')),
+        new HtmlWebpackPlugin(getHtmlConfig('detail', '商品详情页')),
+        new HtmlWebpackPlugin(getHtmlConfig('shopping-cart', '购物车')),
         new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
         new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
