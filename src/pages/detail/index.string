@@ -11,6 +11,7 @@
             {{/subImages}}
         </ul>
     </div>
+
     <div class="p-info-con">
         <h1 class="p-name">{{name}}</h1>
         <p class="p-subtitle">{{subtitle}}</p>
@@ -33,12 +34,14 @@
         </div>
     </div>
 </div>
+
 <div class="detail-wrap">
     <div class="detail-tab-con">
         <ul class="tab-list">
             <li class="tab-item active">详细描述</li>
         </ul>
     </div>
+
     <div class="detail-con">
         {{{detail}}}
     </div>

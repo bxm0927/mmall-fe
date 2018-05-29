@@ -1,3 +1,12 @@
+/**
+ * 购物车功能点：
+ * - 购物车中商品的展示
+ * - 修改购物车中商品的数量
+ * - 选中/取消选中购物车中商品
+ * - 全选/反选购物车中商品
+ * - 删除单个/多个购物车中商品
+ * - 结算
+ */
 require('./index.css');
 
 require('pages/common/header/index.js');
@@ -10,7 +19,6 @@ var templateIndex = require('./index.string');
 
 var page = {
     data: {
-
     },
     init: function() {
         this.onLoad();
@@ -97,8 +105,7 @@ var page = {
         // 删除单个商品
         $(document).on('click', '.cart-delete', function() {
             if (window.confirm('确认要删除该商品？')) {
-                var productId = $(this).parents('.cart-table')
-                    .data('product-id');
+                var productId = $(this).parents('.cart-table').data('product-id');
                 _this.deleteCartProduct(productId);
             }
         });
@@ -107,11 +114,12 @@ var page = {
             if (window.confirm('确认要删除选中的商品？')) {
                 var arrProductIds = [],
                     $selectedItem = $('.cart-select:checked');
+
                 // 循环查找选中的productIds
                 for (var i = 0, iLength = $selectedItem.length; i < iLength; i++) {
-                    arrProductIds
-                        .push($($selectedItem[i]).parents('.cart-table').data('product-id'));
+                    arrProductIds.push($($selectedItem[i]).parents('.cart-table').data('product-id'));
                 }
+
                 if (arrProductIds.length) {
                     _this.deleteCartProduct(arrProductIds.join(','));
                 } else {
@@ -121,7 +129,7 @@ var page = {
         });
         // 提交购物车
         $(document).on('click', '.btn-submit', function() {
-            // 总价大于0，进行提交
+            // 总价大于0，进行提交，跳转到订单确认页
             if (_this.data.cartInfo && _this.data.cartInfo.cartTotalPrice > 0) {
                 window.location.href = './confirm.html';
             } else {
@@ -132,7 +140,7 @@ var page = {
     // 加载购物车信息
     loadCart: function() {
         var _this = this;
-        // 获取购物车列表
+        // 获取购物车列表，成功则渲染购物车，否则显示错误信息
         _cart.getCartList(function(res) {
             _this.renderCart(res);
         }, function(errMsg) {

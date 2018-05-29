@@ -63,6 +63,7 @@ var page = {
             $pageWrap = $('.page-wrap');
         // loading
         $pageWrap.html('<div class="loading"></div>');
+
         // 请求detail信息
         _product.getProductDetail(this.data.productId, function(res) {
             _this.filter(res);

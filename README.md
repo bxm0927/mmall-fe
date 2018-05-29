@@ -64,3 +64,12 @@ npm run dist_mac
 ```
 
 开发模式下预览项目，访问：http://localhost:8088/dist/view/index.html
+
+
+## TODO
+
+css -> less/sass
+
+图片懒加载
+
+抽取面包屑导航组件

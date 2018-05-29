@@ -49,10 +49,8 @@ Pagination.prototype.getPaginationHtml = function() {
     var html = '',
         option = this.option,
         pageArray = [],
-        start = option.pageNum - option.pageRange > 0 ?
-        option.pageNum - option.pageRange : 1,
-        end = option.pageNum + option.pageRange < option.pages ?
-        option.pageNum + option.pageRange : option.pages;
+        start = option.pageNum - option.pageRange > 0 ? option.pageNum - option.pageRange : 1,
+        end = option.pageNum + option.pageRange < option.pages ? option.pageNum + option.pageRange : option.pages;
 
     // 上一页按钮的数据
     pageArray.push({
