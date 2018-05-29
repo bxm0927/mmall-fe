@@ -55,8 +55,8 @@ var config = {
         path: __dirname + '/dist/',
 
         // 文件的访问路径，默认 /
-        publicPath: '/dist/', // dev
-        // publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.lovebxm.com/mmall-fe/dist/', // online
+        // publicPath: '/dist/', // dev
+        publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.lovebxm.com/mmall-fe/dist/', // online
 
         // 打包后的文件名，支持路径形式
         filename: 'js/[name].js'
