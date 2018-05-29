@@ -19,6 +19,7 @@ mmall，企业级电商平台前端项目
     │  ├─user-pass-reset            找回密码（未登录状态下）
     │  ├─user-pass-update           修改密码（登陆状态下）
     │  └─user-register              用户注册
+    ├─plugin                插件
     ├─service               业务层，负责接口调用
     ├─util                  工具层
 ```

@@ -2,14 +2,15 @@
 <html lang="en">
 
 <head>
-    <%= require('html-loader!...common/head/head.html')  %>
-    <title><%= htmlWebpackPlugin.options.title%> - happymmall电商平台</title>
+    <%= require('html-loader!../common/head/head.html')  %>
+    <title><%= htmlWebpackPlugin.options.title%> - MMall 电商平台</title>
 </head>
 
 <body>
     <%= require('html-loader!../common/nav/nav.html')  %>
     <%= require('html-loader!../common/header/header.html')  %>
 
+    <!-- 面包屑导航 -->
     <div class="crumb">
         <div class="w">
             <div class="crumb-con">
@@ -20,7 +21,9 @@
         </div>
     </div>
 
+    <!-- 页面主要内容 - 商品列表页 -->
     <div class="page-wrap w">
+        <!-- 排序 -->
         <ul class="sort-con">
             <li class="sort-item active" data-type="default">默认排序</li>
             <li class="sort-item" data-type="price">
@@ -29,10 +32,11 @@
                 <i class="fa fa-sort-desc"></i>
             </li>
         </ul>
+
         <!-- list 容器 -->
         <ul class="p-list-con">
-
         </ul>
+
         <!-- 分页容器 -->
         <div class="pagination"></div>
     </div>

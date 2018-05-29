@@ -1,5 +1,4 @@
 // 商品模块接口调用
-
 var _mm = require('util/mm.js');
 
 var _product = {

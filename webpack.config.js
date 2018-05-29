@@ -96,7 +96,8 @@ var config = {
             util        : __dirname + '/src/util',
             pages       : __dirname + '/src/pages',
             service     : __dirname + '/src/service',
-            image       : __dirname + '/src/image'
+            image       : __dirname + '/src/image',
+            plugin      : __dirname + '/src/plugin'
         }
     },
     // 插件
