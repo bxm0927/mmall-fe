@@ -8,7 +8,7 @@
 var webpack           = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+// var OpenBrowserPlugin = require('open-browser-webpack-plugin'); // 开发时自动打开浏览器
 
 // Node.js 环境变量的配置 online || dev，该参数在启动命令里面配置
 var WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
@@ -103,7 +103,7 @@ var config = {
     // 插件
     plugins: [
         // 自动打开浏览器
-        new OpenBrowserPlugin({ url: 'http://localhost:8088/dist/view/' }),
+        // new OpenBrowserPlugin({ url: 'http://localhost:8088/dist/view/' }),
 
         // 通用js打包到 /dist/js/base.js
         new webpack.optimize.CommonsChunkPlugin({

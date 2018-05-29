@@ -29,6 +29,7 @@ mmall，企业级电商平台前端项目
 
 > 部署时修改 webpack 的 publicPath
 
+> 开发时可以打开 open-browser-webpack-plugin 插件，部署时要注释掉，不然报错。
 
 项目初始化步骤
 
